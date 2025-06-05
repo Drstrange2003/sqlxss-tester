@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SQL Injection Scanner</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <h2 class="mb-4 text-center">SQL Injection and Cross site scripting Vulnerability Scanner</h2>
+        <form method="post">
+            <div class="mb-3">
+                <label for="url" class="form-label">Enter Target URL (e.g. http://testphp.vulnweb.com/artists.php?id=)</label>
+                <input type="text" class="form-control" id="url" name="url" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Scan</button>
+        </form>
+        {% if result %}
+            <h4 class="mt-5">Scan Results:</h4>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Payload</th>
+                        <th>Vulnerable</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for r in result %}
+                    <tr>
+                        <td>{{ r.payload }}</td>
+                        <td>{{ 'Yes' if r.vulnerable else 'No' }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    </div>
+</body>
+</html>
